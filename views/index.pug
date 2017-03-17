@@ -1,7 +1,11 @@
 doctype html
 html
     head
+        title News Box
 
     body
-        h1 hello #{name}
-        p #{msg}
+        h1 News Box List
+        ol
+        each item in news
+            li
+                a(href='https://cnodejs.org'+item.href) #{item.title}
