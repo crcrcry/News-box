@@ -4,17 +4,17 @@ var cheerio = require('cheerio');
 
 var router = express.Router();
 
-router.get('/', function(req, res, next){
+router.get('/', function(req, res, next) {
     superagent.get('https://cnodejs.org/')
-        .end(function(err, sres){
-            if(err){
+        .end(function(err, sres) {
+            if (err) {
                 res.send("Get Request Error!");
             }
 
             var $ = cheerio.load(sres.text);
             var items = [];
 
-            $('#topic_list .topic_title').each(function(idx, element){
+            $('#topic_list .topic_title').each(function(idx, element) {
                 var $element = $(element);
                 items.push({
                     title: $element.attr('title'),
@@ -26,6 +26,28 @@ router.get('/', function(req, res, next){
                 news: items
             })
         })
+
+    // var netease = [];
+
+    // superagent.get('http://news.163.com/')
+    //     .end(function(err, sres){
+    //         if(err){
+    //             //暂不处理错误
+    //         }
+
+    //         var $ = cheerio.load(sres.text);
+
+    //         $('news_article').each(function(idx, element){
+    //             var $element = $(element);
+    //             items.push({
+    //                 title: ,
+    //                 href: ,
+    //                 image: ,
+    //                 keywords: ,
+
+    //             })
+    //         })
+    //     })
 })
 
 module.exports = router;
