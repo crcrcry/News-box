@@ -1,53 +1,31 @@
 var express = require('express');
 var superagent = require('superagent');
-var cheerio = require('cheerio');
+// var cheerio = require('cheerio');
+
+var News = require('../models/news');
 
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-    superagent.get('https://cnodejs.org/')
-        .end(function(err, sres) {
-            if (err) {
-                res.send("Get Request Error!");
+    superagent.get('http://v.juhe.cn/toutiao/index?type=top&key=293ed1ed7fbc7f612425b87414993e03')
+        .end(function(err, sres){
+            if(err){
+                //暂时不处理error
             }
 
-            var $ = cheerio.load(sres.text);
-            var items = [];
+            // if(sres.result.stat == "1"){
+            //      暂时不处理状态码
+            // }
 
-            $('#topic_list .topic_title').each(function(idx, element) {
-                var $element = $(element);
-                items.push({
-                    title: $element.attr('title'),
-                    href: $element.attr('href')
-                })
-            })
+            // 响应对象数据是一个json字符串，通过es5中JSON对象来转换
+            var jsonData = JSON.parse(sres.text);
 
-            res.render('index', {
-                news: items
-            })
+            News.add(jsonData.result.data, function (result) {
+
+            });
+
+            res.render('index');
         })
-
-    // var netease = [];
-
-    // superagent.get('http://news.163.com/')
-    //     .end(function(err, sres){
-    //         if(err){
-    //             //暂不处理错误
-    //         }
-
-    //         var $ = cheerio.load(sres.text);
-
-    //         $('news_article').each(function(idx, element){
-    //             var $element = $(element);
-    //             items.push({
-    //                 title: ,
-    //                 href: ,
-    //                 image: ,
-    //                 keywords: ,
-
-    //             })
-    //         })
-    //     })
 })
 
 module.exports = router;
