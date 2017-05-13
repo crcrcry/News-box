@@ -1,0 +1,26 @@
+#intro{
+    width: 100%;
+    height: 60vh;
+    background: url("https://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1493385916&di=68b5c2fcb5ab4d999417acd08036cd5e&src=http://pic.qiantucdn.com/58pic/17/91/45/89s58PICJac_1024.jpg");
+    background-size: 100%;
+    padding: 5vh;
+    min-height: 550px;
+}
+
+.sentence{
+    margin-top: 15vh;
+    margin-left: 15%;
+    width: 70%;
+    text-align: center;
+    font-size: 36px;
+    color: #ffffff;
+}
+
+.author{
+    margin-top: 2vh;
+    margin-left: 15%;
+    width: 70%;
+    text-align: center;
+    font-size: 20px;
+    color: #ffffff;
+}

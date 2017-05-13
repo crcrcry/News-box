@@ -14,6 +14,15 @@ app.set('trust proxy', 1);
 
 app.use(helmet());
 app.use(express.static('public'));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// cors 解决跨域问题
+app.all('*', (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+})
 
 app.use('/', index);
 app.use('*', function(req, res){

@@ -1,0 +1,25 @@
+#statistics{
+    width: 100%;
+    height: 40vh;
+    padding-left: 10%;
+    padding-top: 12vh;
+    background: url("./statistics_back.jpg") 34% 20%;
+}
+
+.data{
+    width: 28%;
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+}
+
+.number{
+    font-weight: bold;
+    font-size: 72px;
+    font-family: "Weibei SC";
+}
+
+.unit{
+    font-size: 20px;
+    font-family: sans-serif;
+}
