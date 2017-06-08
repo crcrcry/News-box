@@ -1,5 +1,5 @@
 # News-box
--  ZJU BS架构课程大作业，各大新闻网站的新闻整合平台
+-  各大新闻网站的新闻整合平台
 
 ## 设计
 - 用户系统
@@ -16,7 +16,7 @@
 - 前端
     - 框架：React
     - UI库：Ant Design
-    - 打包：Webpack + Babel
+    - 打包：Webpack
 - 后端
     - 框架：Express
     - 数据库：Mysql
